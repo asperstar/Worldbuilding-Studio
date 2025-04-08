@@ -25,6 +25,18 @@ app.use(express.json({
   }
 }));
 
+// Add root route handler
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Worldbuilding Studio API is running',
+    status: 'ok',
+    endpoints: {
+      test: '/test',
+      chat: '/chat'
+    }
+  });
+});
+
 // Test endpoint
 app.get('/test', (req, res) => {
   res.json({ message: 'Server is running!' });
